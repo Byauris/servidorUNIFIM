@@ -22,7 +22,7 @@ app.use(express.static(publicPath));
 
 server.listen(port, (err) => {
     if (err) throw new Error(err);
-    console.log(`Servidor corriendo en el puerto ${process.env.PORT}`)
+    console.log(`Servidor corriendo en el puerto ${port}`)
 })
 
 
