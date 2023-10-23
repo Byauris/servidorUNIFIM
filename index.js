@@ -3,7 +3,7 @@ const cors = require('cors');
 const path = require('path');
 require('dotenv').config();
 
-
+const port = process.env.PORT;
 //app de express
 const app = express();
 app.use(cors());
@@ -20,7 +20,7 @@ const publicPath = path.resolve(__dirname, 'public');
 
 app.use(express.static(publicPath));
 
-server.listen(process.env.PORT, (err) => {
+server.listen(port, (err) => {
     if (err) throw new Error(err);
     console.log(`Servidor corriendo en el puerto ${process.env.PORT}`)
 })
