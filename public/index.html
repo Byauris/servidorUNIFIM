@@ -20,13 +20,13 @@
         });
 
         socket.on('mensaje', function(payload){
-            document.getElementById("msj").innerHTML = payload;
+            // document.getElementById("msj").innerHTML = payload;
             console.log(payload);
         })
 
         // socket.emit('mensaje', {mensaje:'hola'})
         socket.on('web', function(payload){
-            // document.getElementById("msj").innerHTML = payload;
+            document.getElementById("msj").innerHTML = payload;
             console.log(payload);
         })
 
