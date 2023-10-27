@@ -20,18 +20,19 @@
         });
 
         socket.on('mensaje', function(payload){
+            document.getElementById("msj").innerHTML = payload;
             console.log(payload);
         })
 
         // socket.emit('mensaje', {mensaje:'hola'})
         socket.on('web', function(payload){
-            document.getElementById("msj").innerHTML = payload;
+            // document.getElementById("msj").innerHTML = payload;
             console.log(payload);
         })
 
     </script>
     <h2>Numero de clientes conectados:</h2>
-    <h2><div id = "mensaje"></divid></h2>
+    <h2><div id = "msj"></divid></h2>
     
 </body>
 </html>
