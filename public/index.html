@@ -5,9 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SOcketServer</title>
 </head>
+<style>
+    .titulo{
+        padding: 50px;
+        position: absolute;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+</style>
 <body>
-    <h1>WebServer UNIFIM</h1>
+    <h1 class="titulo">Servidor Web SocketIO UNIFIM</h1>
     <script src="socket.io/socket.io.js"></script>
+    <div class="container">
+        <img class="logo", src="assets/logo_uni.png", height="250">
+    </div>
     <script>
         var socket = io();
         var msj = " ";
@@ -21,6 +31,8 @@
             console.log('Perdimos la coneccion');
         });
 
+        // Este mensaje siempre tiene que llegar con un formato Json de:
+        // {'dato1':'d1', 'dato2':'d2', 'dato3':'d3'}
         socket.on('mensaje', function(payload){
             // document.getElementById("msj").innerHTML = payload;
             document.getElementById("mensaje").innerHTML = `${payload}`
