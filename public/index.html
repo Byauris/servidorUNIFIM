@@ -7,17 +7,60 @@
 </head>
 <style>
     .titulo{
-        padding: 50px;
-        position: absolute;
+        padding: 20px;
+        /* position: absolute; */
         font-family: Arial, Helvetica, sans-serif;
+        margin-bottom: 5;
+        font-style: italic;
+    }
+    .imagen{
+        position: absolute;
+        top: 20px;
+        right: 50px;
+    }
+    .clientes{
+        color: rgba(5, 108, 14, 0.541);
+        font-style: italic;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .style_1{
+        color: rgb(11, 11, 132);
+        font-family: Arial, Helvetica, sans-serif;
+        font-style: italic;
+    }
+    .style_2{
+        color: blue;
+        font-family: Arial, Helvetica, sans-serif;
+        font-style: normal;
+    }
+    .motor_data{
+        padding: 50px;
+
+    }
+    .conex{
+        padding: 30px;
+        margin-bottom: 10px;
+        margin-right: 200px;
+    }
+    .table_motor{
+        /* padding: 5px; */
+        /* margin-top: 0cm; */
+        border: 1px solid black;
+        padding: 20px;
+        border-radius: 20px;
+    }
+    .table_sensor{
+        border: 1px solid black;
+        padding: 20px;
+        border-radius: 20px;
     }
 </style>
 <body>
     <h1 class="titulo">Servidor Web SocketIO UNIFIM</h1>
-    <script src="socket.io/socket.io.js"></script>
-    <div class="container">
-        <img class="logo", src="assets/logo_uni.png", height="250">
+    <div class="contendor">
+        <img class="imagen" src="images/logo_uni.png" height="200">
     </div>
+    <script src="socket.io/socket.io.js"></script>
     <script>
         var socket = io();
         var msj = " ";
@@ -34,22 +77,69 @@
         // Este mensaje siempre tiene que llegar con un formato Json de:
         // {'dato1':'d1', 'dato2':'d2', 'dato3':'d3'}
         socket.on('mensaje', function(payload){
-            // document.getElementById("msj").innerHTML = payload;
             document.getElementById("mensaje").innerHTML = `${payload}`
             console.log(payload);
-        })
+        });
 
         // socket.emit('mensaje', {mensaje:'hola'})
         socket.on('web', function(payload){
             document.getElementById("msj").innerHTML = payload;
             console.log(payload);
-        })
+        });
 
     </script>
-    <h2>Numero de clientes conectados:</h2>
-    <h2><div id = "msj"></divid></h2>
-        <h2>dato:</h2>
-    <h2><div id = "mensaje"></divid></h2>
+    <div, class="conex">
+        <table>
+            <tr>
+                <td><h3> Clientes conectados: </h3></td>
+                <td><h2 class="clientes"><div id = "msj"></divid></h2></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="motor_data">
+        <table>
+            <tr>
+                <td><h3>DATOS PAC4200:</h3></td>
+                <td><img class="motor" src="images/motor_electrico.png"></td>
+            </tr>
+        </table>
+    <table class="table_motor">
+        <tr style="line-height: 0.2">
+            <td><h2>W1: </h2></td>
+            <td><h2 class="style_1">220.00</h2></td>
+            <td><h3 class="style_2">kW-h</h3></td>
+        </tr>
+        <tr style="line-height: 0.2">
+            <td><h2>W2: </h2></td>
+            <td><h2 class="style_1">220.00</h2></td>
+            <td><h3 class="style_2">kW-h</h3></td>
+        </tr>
+        <tr style="line-height: 0.2">
+            <td><h2>W3: </h2></td>
+            <td><h2 class="style_1">220.00</h2></td>
+            <td><h3 class="style_2">kW-h</h3></td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <td><h3>DATOS Sensor ultrasónico:</h3></td>
+            <td><img class="motor" src="images/motor_electrico.png"></td>
+        </tr>
+    </table>
+
+    <table class="table_sensor">
+        <tr style="line-height: 0.2">
+            <td><h2>Amplitud de ola: </h2></td>
+            <td><h2 class="style_1">220.00</h2></td>
+            <td><h3 class="style_2">cm</h3></td>
+        </tr>
+    </table>
+
+    </div>
+    
+    <!-- <h2><div id = "mensaje"></divid></h2> -->
     
 </body>
 </html>
