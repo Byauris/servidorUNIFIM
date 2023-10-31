@@ -69,7 +69,7 @@
         var Data1 = " ";
         var Data2 = " ";
         var Data3 = " ";
-        var jsonString = '{"dato1":"125.00", "dato2":"140.00", "dato3":"200.00"}';
+        var jsonString = '{"dato1":"125.00", "dato2":"140.00", "dato3":"200.00", "dato4": "127.00"}';
 
         socket.on('connect', function(){
             console.log('Conectado al servidor');
@@ -89,6 +89,7 @@
             Data1 = obj.dato1;
             Data2 = obj.dato2;
             Data3 = obj.dato3;
+            Data4 = obj.dato4;
             if(obj.dato1 == "0"){
                 Data1 = "0.00";
             };
@@ -98,10 +99,14 @@
             if(obj.dato3 == "0"){
                 Data3 = "0.00";
             };
+            if(obj.dato4 == "0"){
+                Data4 = "0.00";
+            };
             
             document.getElementById("Data1").innerHTML = `${Data1}`;
             document.getElementById("Data2").innerHTML = `${Data2}`;
             document.getElementById("Data3").innerHTML = `${Data3}`;
+            document.getElementById("Data4").innerHTML = `${Data4}`;
             console.log(payload);
             console.log(Data1, Data2, Data3);
         });
@@ -149,8 +154,23 @@
 
     <table>
         <tr>
+            <td><h3>Potencia consumida:</h3></td>
+            <!-- <td><img class="motor" src="images/señal_radar.png" height="75"></td> -->
+        </tr>
+    </table>
+
+    <table class="table_sensor">
+        <tr style="line-height: 0.2">
+            <td><h2>Pot: </h2></td>
+            <td><h2 class="style_1"><div id ="Data4">000.00</div></h2></td>
+            <td><h3 class="style_2">W-h</h3></td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
             <td><h3>DATOS Sensor ultrasónico:</h3></td>
-            <td><img class="motor" src="images/señal_radar.png" height="75"></td>
+            <td><img class="motor" src="images/señal_radar.png" height="50"></td>
         </tr>
     </table>
 
