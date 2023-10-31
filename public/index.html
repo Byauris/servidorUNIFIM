@@ -35,7 +35,7 @@
         font-style: normal;
     }
     .motor_data{
-        padding: 50px;
+        padding: 20px;
 
     }
     .conex{
@@ -85,9 +85,20 @@
         socket.on('mensaje', function(payload){
             // const obj = JSON.parse(payload);
             const obj = JSON.parse(payload);
+
             Data1 = obj.dato1;
             Data2 = obj.dato2;
             Data3 = obj.dato3;
+            if(obj.dato1 == "0"){
+                Data1 = "0.00";
+            };
+            if(obj.dato2 == "0"){
+                Data2 = "0.00";
+            };
+            if(obj.dato3 == "0"){
+                Data3 = "0.00";
+            };
+            
             document.getElementById("Data1").innerHTML = `${Data1}`;
             document.getElementById("Data2").innerHTML = `${Data2}`;
             document.getElementById("Data3").innerHTML = `${Data3}`;
@@ -120,18 +131,18 @@
         </table>
     <table class="table_motor">
         <tr style="line-height: 0.2">
-            <td><h2>W1: </h2></td>
-            <td><h2 class="style_1"><div id ="Data1"></div></h2></td>
+            <td><h2>V1: </h2></td>
+            <td><h2 class="style_1"><div id ="Data1">000.00</div></h2></td>
             <td><h3 class="style_2">kW-h</h3></td>
         </tr>
         <tr style="line-height: 0.2">
-            <td><h2>W2: </h2></td>
-            <td><h2 class="style_1"><div id ="Data2"></div></h2></td>
+            <td><h2>V2: </h2></td>
+            <td><h2 class="style_1"><div id ="Data2">000.00</div></h2></td>
             <td><h3 class="style_2">kW-h</h3></td>
         </tr>
         <tr style="line-height: 0.2">
-            <td><h2>W3: </h2></td>
-            <td><h2 class="style_1"><div id ="Data3"></div></h2></td>
+            <td><h2>V3: </h2></td>
+            <td><h2 class="style_1"><div id ="Data3">000.00</div></h2></td>
             <td><h3 class="style_2">kW-h</h3></td>
         </tr>
     </table>
