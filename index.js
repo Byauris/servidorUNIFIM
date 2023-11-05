@@ -2,11 +2,10 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 require('dotenv').config();
-
 const port = process.env.PORT;
 //app de express
 const app = express();
-app.use(cors());
+app.use(cors(    ));
 
 //node Server
 const server = require('http').createServer(app);
