@@ -88,22 +88,24 @@
             // const obj = JSON.parse(payload);
             const obj = JSON.parse(payload);
 
+            
+
             Data1 = obj.dato1;
             Data2 = obj.dato2;
             Data3 = obj.dato3;
             Data4 = obj.dato4;
             Data5 = obj.dato5;
-            if(obj.dato1 == "0"){
-                Data1 = "0.00";
+            if(obj.dato1 == "undefined"){
+                Data1 = "219";
             };
-            if(obj.dato2 == "0"){
+            if(obj.dato2 == "undefined"){
                 Data2 = "0.00";
             };
-            if(obj.dato3 == "0"){
+            if(obj.dato3 == "undefined"){
                 Data3 = "0.00";
             };
-            if(obj.dato4 == "0"){
-                Data4 = "0.00";
+            if(obj.dato4 == "undefined"){
+                Data4 = "625.6";
             };
             if(obj.dato5 == "0"){
                 Data5 = "0.00";
