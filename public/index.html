@@ -69,7 +69,7 @@
         var Data1 = " ";
         var Data2 = " ";
         var Data3 = " ";
-        var jsonString = '{"dato1":"125.00", "dato2":"140.00", "dato3":"200.00", "dato4": "127.00"}';
+        var jsonString = '{"dato1":"125.00", "dato2":"140.00", "dato3":"200.00", "dato4": "127.00", "dato5": "077.77"}';
 
         socket.on('connect', function(){
             console.log('Conectado al servidor');
@@ -90,6 +90,7 @@
             Data2 = obj.dato2;
             Data3 = obj.dato3;
             Data4 = obj.dato4;
+            Data5 = obj.dato5;
             if(obj.dato1 == "0"){
                 Data1 = "0.00";
             };
@@ -102,13 +103,17 @@
             if(obj.dato4 == "0"){
                 Data4 = "0.00";
             };
+            if(obj.dato5 == "0"){
+                Data5 = "0.00";
+            }
             
             document.getElementById("Data1").innerHTML = `${Data1}`;
             document.getElementById("Data2").innerHTML = `${Data2}`;
             document.getElementById("Data3").innerHTML = `${Data3}`;
             document.getElementById("Data4").innerHTML = `${Data4}`;
+            document.getElementById("Data5").innerHTML = `${Data5}`;
             console.log(payload);
-            console.log(Data1, Data2, Data3);
+            console.log(Data1, Data2, Data3, Data4, Data5);
         });
 
         // socket.emit('mensaje', {mensaje:'hola'})
@@ -177,7 +182,7 @@
     <table class="table_sensor">
         <tr style="line-height: 0.2">
             <td><h2>Amplitud: </h2></td>
-            <td><h2 class="style_1">220.00</h2></td>
+            <td><h2 class="style_1"><div id ="Data5">000.00</div></h2></td>
             <td><h3 class="style_2">cm</h3></td>
         </tr>
     </table>
