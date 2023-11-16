@@ -14,7 +14,7 @@ io.on('connection', client => {
   });
   
   client.on('mensaje', ( payload ) => {
-    // console.log('MENSAJE!!!', payload);
+    console.log('MENSAJE!!!', payload);
     io.emit('mensaje', payload);
     
   });
